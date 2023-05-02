@@ -7,6 +7,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static("public"));
+
 app.get("/home", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
@@ -14,6 +16,14 @@ app.get("/home", (req, res) => {
 app.get("/about", (req, res) => {
   res.sendFile(__dirname + "/views/about.html");
 });
+
+app.get("/works", (req, res) => {
+    res.sendFile(__dirname + "/views/works.html");
+})
+
+app.get("/gallery", (req, res) => {
+    res.sendFile(__dirname + "/views/photo-gallery.html");
+})
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
